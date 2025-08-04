@@ -8,6 +8,9 @@
 <body>
     <h1>Login</h1>
     <form action="/login" method="post">
+        {% if error %}
+            <p>Error: {{ error }}</p>
+        {% endif %}
         <p>Username: </p>
         <input name="username"><br>
         <p>Password: </p>
