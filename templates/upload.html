@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 <body>
+    <nav>    
+        <ul>
+            <li><a href="/">Mini-ig</a></li>
+            <div class="right-container">
+                <li><a href="#">{{ username }}</a></li>
+                <li><a href="/upload">Upload an image</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Signup</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </div>
+        </ul>
+    </nav>
     <form action="/upload" enctype="multipart/form-data" method="post">
-        {% if error %}
-            <p>Error: {{ error }}</p>
-        {% endif %}
-        <p>Name: </p>
-        <input name="name"><br>
-        <p>Image: </p>
-        <input type="file" name="image"><br>
-        <button type="submit">Post</button>
+        <div class="upload-container">
+            <h1>Upload an image</h1>
+            {% if error %}
+                <p>Error: {{ error }}</p>
+            {% endif %}
+            <p>Name: <input name="name"></p>
+            <p>Image: <input type="file" name="image"></p>
+            <button type="submit">Post</button>
+        </div>
     </form>
 </body>
 </html>

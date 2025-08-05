@@ -7,25 +7,26 @@
     <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-title">
-            <a href="/">Mini-ig</a>    
-        </div>
+    <nav>    
         <ul>
-            <li>
-                <div class="list-item">Hello {{ username }}!</div>
-            </li>
-            <li>
-                <div class="list-item"><a href="/upload">Upload an image</a></div>
-            </li>
-            <li>
-                <div class="list-item"><a href="/logout">Logout</a></div>
-            </li>
+            <li><a href="/">Mini-ig</a></li>
+            <div class="right-container">
+                <li><a href="#">{{ username }}</a></li>
+                <li><a href="/upload">Upload an image</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Signup</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </div>
         </ul>
     </nav>
+    <section>
     {% for image in data[::-1]%}
-        <p>{{ image["name"] }}</p>
-        <img src="{{ image['path'] }}">
+        <div class="post-container">
+            <p class="post-name">{{ image["name"] }}</p>
+            <p class="post-creator">By: {{ image["user"] }}</p>
+            <img class="post-image" src="{{ image['path'] }}" width="300" height="300">
+        </div>
     {%endfor%}
+    </section>
 </body>
 </html>
