@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 <body>
-    <h1>Signup</h1>
+    <nav>    
+        <ul>
+            <li><a href="/">Mini-ig</a></li>
+            <div class="right-container">
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Signup</a></li>
+            </div>
+        </ul>
+    </nav>
     <form action="/signup" method="post">
-        <p>Username: </p>
-        <input name="username"><br>
-        <p>Password: </p>
-        <input name="password"><br>
-        <button type="submit">Signup</button>
+        <div class="upload-container">
+            <h1>Signup</h1>
+            <p>Username: <input name="username"></p>
+            <p>Password: <input name="password"></p>
+            <button type="submit">Signup</button><br>
+        </div>
     </form>
-    <a href="/login">Login here</a>
 </body>
 </html>

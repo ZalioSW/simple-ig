@@ -65,5 +65,14 @@ def upload():
             error = "Please select your file and input the name!"
     return render_template("upload.html", error=error)
 
+@app.route("/viewProfile/<string:username>")
+def viewProfile(username):
+    if "username" not in session:
+        return redirect("/signup")
+    Post = Query()
+    user_posts = posts.search(Post.user == username)
+    return render_template("viewProfile.html", username=username, posts=user_posts)
+    
+
 
 app.run(debug=True)  

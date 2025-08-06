@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page</title>
+    <title>View Profile</title>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 <body>
@@ -19,14 +19,12 @@
             </div>
         </ul>
     </nav>
-    <section>
-    {% for image in data[::-1]%}
+    {% for post in posts[::-1]%}
         <div class="post-container">
-            <p class="post-name">{{ image["name"] }}</p>
-            <p class="post-creator">By: {{ image["user"] }}</p>
-            <img class="post-image" src="{{ image['path'] }}" width="300" height="300">
+            <p class="post-name">{{ post["name"] }}</p>
+            <p class="post-creator">By: {{ post["user"] }}</p>
+            <img class="post-image" src="{{ post['path'] }}" width="300" height="300">
         </div>
     {%endfor%}
-    </section>
 </body>
 </html>

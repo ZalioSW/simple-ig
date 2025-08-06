@@ -3,22 +3,13 @@
     "1": {
       "username": "zaliosw",
       "password": "123"
-    },
-    "2": {
-      "username": "mamiBoss",
-      "password": "dinablazzal"
     }
   },
   "posts": {
     "1": {
       "user": "zaliosw",
-      "name": "a dela",
-      "path": "static/uploads\\6e1a359d-5ba6-4844-bd28-991873b50683.JPG"
-    },
-    "2": {
-      "user": "mamiBoss",
-      "name": "ajde zj",
-      "path": "static/uploads\\efd46542-97eb-466c-9f49-2a44bc7c4b2f.JPG"
+      "name": "Hannibal",
+      "path": "/static/uploads\\Hannibal-for-king-Calisthenics-1.jpg"
     }
   }
 }
