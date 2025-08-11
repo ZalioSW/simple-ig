@@ -23,8 +23,8 @@
     {% for image in data[::-1]%}
         <div class="post-container">
             <p class="post-name">{{ image["name"] }}</p>
-            <p class="post-creator">By: {{ image["user"] }}</p>
-            <img class="post-image" src="{{ image['path'] }}" width="300" height="300">
+            <p class="post-creator">By: <a href="/viewProfile/{{ image['user'] }}">{{ image["user"] }}</a></p>
+            <img class="post-image" src="/{{ image['path'] }}" width="300" height="300">
         </div>
     {%endfor%}
     </section>

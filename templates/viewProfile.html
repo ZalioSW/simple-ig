@@ -23,7 +23,7 @@
         <div class="post-container">
             <p class="post-name">{{ post["name"] }}</p>
             <p class="post-creator">By: {{ post["user"] }}</p>
-            <img class="post-image" src="{{ post['path'] }}" width="300" height="300">
+            <img class="post-image" src="/{{ post['path'] }}" width="300" height="300">
         </div>
     {%endfor%}
 </body>

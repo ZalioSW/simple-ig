@@ -57,7 +57,7 @@ def upload():
         image = request.files["image"]
         if image and name:
             imgname = secure_filename(image.filename)
-            imgpath = os.path.join(app.config["upload_folder"], imgname)
+            imgpath = os.path.join(app.config["upload_folder"], imgname).replace("\\", "/")
             image.save(imgpath)
             posts.insert({"user": session["username"], "name": name, "path": imgpath})
             return redirect("/")
