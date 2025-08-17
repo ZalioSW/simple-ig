@@ -13,7 +13,7 @@
         <ul>
             <li><a href="/">Mini-ig</a></li>
             <div class="right-container">
-                <li><a href="/viewProfile/{{ username }}">{{ username }}</a></li>
+                <li><a href="/viewProfile/{{ username }}" id="username">{{ username }}</a></li>
                 <li><a href="/upload">Upload an image</a></li>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/signup">Signup</a></li>
@@ -28,11 +28,37 @@
             <p class="post-creator">By: <a href="/viewProfile/{{ image['user'] }}">{{ image["user"] }}</a></p>
             <img class="post-image" src="/{{ image['path'] }}" width="300" height="300">
             <div class="icon-container">
-                <a href="#" onclick="likePost()" class="like-btn"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                <a href="#" onclick="addComment()" class="comment-btn"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
+                <button type="button" onclick="likePost('{{ image['id'] }}', this)" class="like-btn"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                <button type="button" onclick="addComment()" class="comment-btn"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
             </div>
         </div>
     {%endfor%}
     </section>
+
+    <script>
+        function likePost(postId, element) {
+        const username = document.getElementById('username').textContent.trim();
+
+        $.ajax({
+            url: "/likePost",
+            type: "POST",
+            data: {
+                username: username,
+                post_id: postId
+            },
+            success: function(response){
+                const icon = element.querySelector('i');
+                if(icon.classList.contains('fa-heart-o')){
+                    icon.classList.remove('fa-heart-o');
+                    icon.classList.add('fa-heart');
+                } else {
+                    icon.classList.remove('fa-heart');
+                    icon.classList.add('fa-heart-o');
+                }
+            }
+        });
+    }
+
+    </script>
 </body>
 </html>
