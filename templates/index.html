@@ -28,10 +28,17 @@
             <p class="post-creator">By: <a href="/viewProfile/{{ image['user'] }}">{{ image["user"] }}</a></p>
             <img class="post-image" src="/{{ image['path'] }}" width="300" height="300">
             <div class="icon-container">
-                <button type="button" onclick="likePost('{{ image['id'] }}', this)" class="like-btn"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                <button type="button" onclick="likePost('{{ image[id] }}', this)" class="like-btn">
+                    {% if username in image.get("likes", []) %}
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                    {% else %}
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    {% endif %}
+                </button>
                 <button type="button" onclick="addComment()" class="comment-btn"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
             </div>
         </div>
+
     {%endfor%}
     </section>
 
